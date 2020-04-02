@@ -1,1 +1,61 @@
-<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link rel=icon href=favicon.ico><title>S2H5</title><link href=css/chunk-28bddd79.2a2f410e.css rel=prefetch><link href=css/chunk-aa225c00.ce15d3bb.css rel=prefetch><link href=css/chunk-d36422de.bcbe5fbf.css rel=prefetch><link href=js/chunk-28bddd79.2c32a463.js rel=prefetch><link href=js/chunk-aa225c00.fa537c9c.js rel=prefetch><link href=js/chunk-d36422de.c1e95067.js rel=prefetch><link href=css/app.801d1109.css rel=preload as=style><link href=css/chunk-vendors.7bee8e99.css rel=preload as=style><link href=js/app.f3ba95e8.js rel=preload as=script><link href=js/chunk-vendors.3fd3a56c.js rel=preload as=script><link href=css/chunk-vendors.7bee8e99.css rel=stylesheet><link href=css/app.801d1109.css rel=stylesheet></head><body><noscript><strong>We're sorry but s2-vue-pc doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script src=js/chunk-vendors.3fd3a56c.js></script><script src=js/app.f3ba95e8.js></script></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit"> <!-- 强制壳浏览器使用Webkit内核 -->
+    <title>供应商管理系统</title>
+</head>
+<body>
+
+<div id="root"></div>
+<div id="modal"></div>
+<script>
+  var navInfo = navigator.userAgent.toLowerCase()  //Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)
+  if (navInfo.indexOf('msie') >= 0) {
+    try {
+      var verson = navInfo.split(';')[1].split(' ')[2]
+      if (parseInt(verson) < 10) {
+        alert('为确保体验，IE浏览器请使用10或以上版本！')
+      }
+    } catch (e) {
+      alert('为确保体验，IE浏览器请使用10或以上版本！')
+    }
+  }
+
+  if (typeof Object.assign !== 'function') {  //IE10+ 兼容Object.assign()
+    Object.assign = function (target) {
+      'use strict'
+      if (target === null) {
+        throw new TypeError('Cannot convert undefined or null to object')
+      }
+
+      target = Object(target)
+      for (var index = 1; index < arguments.length; index++) {
+        var source = arguments[index]
+        if (source !== null) {
+          for (var key in source) {
+            if (Object.prototype.hasOwnProperty.call(source, key)) {
+              target[key] = source[key]
+            }
+          }
+        }
+      }
+      return target
+    }
+  }
+
+  if (!Object.entries) {  //兼容Chrome53-
+    Object.entries = function (obj) {
+      var ownProps = Object.keys(obj),
+        i = ownProps.length,
+        resArray = new Array(i) // preallocate the Array
+      while (i--) {
+        resArray[i] = [ownProps[i], obj[ownProps[i]]]
+      }
+      return resArray
+    }
+  }
+</script>
+<script type="text/javascript" src="/js/ak.f7e1.min.js"></script></body>
+</html>
